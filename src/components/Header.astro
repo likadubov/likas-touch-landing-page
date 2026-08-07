@@ -1,0 +1,117 @@
+---
+import { NAV_LINKS, WHATSAPP_LINK } from "../lib/site";
+---
+
+<header class="fixed inset-x-0 top-0 z-40" id="site-header">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div
+      id="header-inner"
+      class="mt-4 flex items-center justify-between rounded-2xl border border-white/10 bg-noir/55 px-4 py-3 backdrop-blur-xl transition-all duration-500 sm:px-6"
+    >
+      <a href="#top" class="flex items-center gap-2">
+        <span class="text-lg font-bold tracking-tight text-paper sm:text-xl">
+          Lika<span class="text-pink">'</span>s Touch
+        </span>
+      </a>
+
+      <nav class="hidden items-center gap-8 lg:flex">
+        {NAV_LINKS.map((link) => (
+          <a
+            href={link.href}
+            class="text-sm font-medium text-muted transition-colors duration-300 hover:text-pink-soft"
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <div class="hidden items-center gap-4 lg:flex">
+        <a
+          href={WHATSAPP_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-full bg-pink px-5 py-2.5 text-sm font-semibold text-noir shadow-[0_0_24px_-6px_var(--color-pink)] transition-all duration-300 hover:bg-pink-soft"
+        >
+          בואו נדבר
+        </a>
+      </div>
+
+      <button
+        id="menu-toggle"
+        type="button"
+        aria-label="פתיחת תפריט"
+        aria-expanded="false"
+        class="flex h-10 w-10 items-center justify-center rounded-full text-paper lg:hidden"
+      >
+        <svg id="menu-icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+        </svg>
+        <svg id="menu-icon-close" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <nav
+      id="mobile-menu"
+      class="mt-2 hidden flex-col overflow-hidden rounded-2xl border border-white/10 bg-noir/98 p-3 shadow-card backdrop-blur-2xl lg:hidden"
+    >
+      {NAV_LINKS.map((link) => (
+        <a
+          href={link.href}
+          class="mobile-nav-link rounded-xl px-4 py-3 text-base font-medium text-paper/90 transition-colors hover:bg-white/[0.06] hover:text-pink-soft"
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href={WHATSAPP_LINK}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-1 rounded-xl bg-pink px-4 py-3 text-center text-base font-semibold text-noir"
+      >
+        בואו נדבר בוואטסאפ
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById("header-inner");
+  const onScroll = () => {
+    if (!header) return;
+    if (window.scrollY > 12) {
+      header.classList.add("shadow-card");
+      header.style.backgroundColor = "rgba(10, 10, 13, 0.72)";
+    } else {
+      header.classList.remove("shadow-card");
+      header.style.backgroundColor = "";
+    }
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const iconOpen = document.getElementById("menu-icon-open");
+  const iconClose = document.getElementById("menu-icon-close");
+
+  toggle?.addEventListener("click", () => {
+    const isOpen = menu?.classList.contains("flex");
+    menu?.classList.toggle("hidden", isOpen);
+    menu?.classList.toggle("flex", !isOpen);
+    iconOpen?.classList.toggle("hidden", !isOpen);
+    iconClose?.classList.toggle("hidden", isOpen);
+    toggle.setAttribute("aria-expanded", String(!isOpen));
+  });
+
+  document.querySelectorAll(".mobile-nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      menu?.classList.add("hidden");
+      menu?.classList.remove("flex");
+      iconOpen?.classList.remove("hidden");
+      iconClose?.classList.add("hidden");
+      toggle?.setAttribute("aria-expanded", "false");
+    });
+  });
+</script>

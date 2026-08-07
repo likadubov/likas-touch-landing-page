@@ -1,0 +1,72 @@
+---
+import { WHATSAPP_LINK } from "../lib/site";
+---
+
+<section id="top" class="relative overflow-hidden pt-40 pb-24 sm:pt-48 sm:pb-32">
+  <div class="pointer-events-none absolute inset-0 -z-20 bg-grid"></div>
+  <div class="scan-beam -z-20"></div>
+  <div
+    class="pointer-events-none absolute -top-24 -end-24 -z-10 h-72 w-72 rounded-full bg-pink/25 blur-3xl animate-float-slow sm:h-96 sm:w-96"
+  ></div>
+  <div
+    class="pointer-events-none absolute top-1/3 -start-32 -z-10 h-72 w-72 rounded-full bg-violet/20 blur-3xl animate-float-slower sm:h-[26rem] sm:w-[26rem]"
+  ></div>
+
+  <div class="mx-auto flex max-w-7xl flex-col items-center px-5 text-center sm:px-8">
+    <div class="reveal inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 font-mono text-xs font-medium tracking-wide text-muted sm:text-sm">
+      <span class="relative flex h-2 w-2">
+        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-pink opacity-60"></span>
+        <span class="relative inline-flex h-2 w-2 rounded-full bg-pink"></span>
+      </span>
+      <span>עיצוב · טכנולוגיה · AI</span>
+      <span class="animate-blink-cursor text-pink-soft">_</span>
+    </div>
+
+    <h1 class="reveal reveal-delay-1 mt-8 max-w-4xl text-balance text-4xl font-bold leading-[1.15] text-paper sm:text-6xl md:text-7xl">
+      נוכחות דיגיטלית שנראית
+      <span class="relative inline-block px-1 text-pink text-glow">
+        מתקדמת
+        <span class="absolute -bottom-1 start-0 h-[3px] w-full rounded-full bg-gradient-to-r from-pink via-pink-soft to-violet shadow-[0_0_16px_2px_var(--color-pink)]"></span>
+      </span>
+      ועובדת בשבילך
+    </h1>
+
+    <p class="reveal reveal-delay-2 mt-7 max-w-2xl text-balance text-lg leading-relaxed text-muted sm:text-xl">
+      <span class="font-semibold text-paper">Lika's Touch</span> בונה לעסקים קטנים דפי נחיתה, עיצוב לרשתות
+      חברתיות ואוטומציות AI — בגישה אישית, בטכנולוגיה מתקדמת ובתוצאות שרואים.
+    </p>
+
+    <div class="reveal reveal-delay-3 mt-10 flex flex-col items-center gap-4 sm:flex-row">
+      <a
+        href={WHATSAPP_LINK}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group relative w-full overflow-hidden rounded-full bg-pink px-8 py-4 text-base font-semibold text-noir shadow-[0_0_40px_-10px_var(--color-pink)] transition-transform duration-300 hover:scale-[1.03] sm:w-auto"
+      >
+        <span class="relative z-10">בואו ניצור משהו שעובד</span>
+        <span class="absolute inset-0 -z-0 translate-x-full bg-gradient-to-l from-violet to-pink-soft transition-transform duration-500 group-hover:translate-x-0"></span>
+      </a>
+      <a
+        href="#services"
+        class="glass w-full rounded-full px-8 py-4 text-base font-semibold text-paper transition-colors duration-300 hover:border-pink/40 hover:text-pink-soft sm:w-auto"
+      >
+        לצפייה בשירותים
+      </a>
+    </div>
+
+    <div class="reveal reveal-delay-4 mt-16 grid w-full max-w-3xl grid-cols-3 gap-6 border-t border-white/10 pt-10 text-center">
+      <div>
+        <p class="font-mono text-3xl font-bold text-paper sm:text-4xl">3</p>
+        <p class="mt-1 text-xs text-muted sm:text-sm">תחומי שירות מרוכזים</p>
+      </div>
+      <div>
+        <p class="font-mono text-3xl font-bold text-paper sm:text-4xl">100%</p>
+        <p class="mt-1 text-xs text-muted sm:text-sm">עיצוב מותאם אישית</p>
+      </div>
+      <div>
+        <p class="font-mono text-3xl font-bold text-paper sm:text-4xl">1:1</p>
+        <p class="mt-1 text-xs text-muted sm:text-sm">ליווי צמוד ואישי</p>
+      </div>
+    </div>
+  </div>
+</section>

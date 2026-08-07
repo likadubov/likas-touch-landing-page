@@ -1,0 +1,59 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+
+const faqs = [
+  {
+    question: "כמה זמן לוקח לבנות דף נחיתה?",
+    answer:
+      "בממוצע בין שבוע לשבועיים וחצי מרגע אישור העיצוב, בהתאם למורכבות הפרויקט ולזמינות התכנים מהצד שלך. בכל פרויקט נקבע לוח זמנים מוסכם מראש.",
+  },
+  {
+    question: "כמה זה עולה?",
+    answer:
+      "המחיר נקבע לפי היקף הפרויקט והצרכים הספציפיים של העסק שלך. אחרי שיחת ההכרות תקבל הצעת מחיר מפורטת ושקופה, בלי עלויות נסתרות.",
+  },
+  {
+    question: "אתם עובדים גם עם עסקים חדשים או קטנים?",
+    answer:
+      "בהחלט — חלק גדול מהעבודה שלי הוא עם עסקים קטנים ועצמאים בתחילת הדרך. אני מתאימה את הפתרון לגודל ולתקציב של העסק שלך.",
+  },
+  {
+    question: "מה זה בעצם ״אוטומציות AI״ ואיך זה עוזר לי?",
+    answer:
+      "אוטומציות הן תהליכים חכמים שמבצעים משימות שחוזרות על עצמן באופן אוטומטי — למשל מענה ראשוני ללידים, סידור פניות או חיבור בין כלים שאתה כבר עובד איתם. התוצאה: פחות עבודה ידנית, יותר זמן לעסק.",
+  },
+  {
+    question: "איך מתחילים לעבוד ביחד?",
+    answer:
+      "פשוט לוחצים על כפתור הוואטסאפ, מספרים בקצרה על העסק והצורך — ואחזור אליך במהירות לתיאום שיחת הכרות קצרה וללא עלות.",
+  },
+];
+---
+
+<section id="faq" class="relative py-24 sm:py-32">
+  <div class="mx-auto max-w-4xl px-5 sm:px-8">
+    <SectionHeading
+      eyebrow="שאלות נפוצות"
+      title="כל מה שרצית לדעת לפני שמתחילים"
+      subtitle="לא מצאת תשובה לשאלה שלך? אפשר לכתוב לי ישירות בוואטסאפ."
+    />
+
+    <div class="mt-14 flex flex-col gap-4">
+      {faqs.map((faq, i) => (
+        <details
+          class:list={["reveal group glass rounded-2xl px-6 py-2 transition-all duration-300 open:border-pink/40 open:shadow-glow", i % 2 === 1 && "reveal-delay-1"]}
+        >
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-start text-base font-semibold text-paper sm:text-lg">
+            {faq.question}
+            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-paper transition-all duration-300 group-open:rotate-45 group-open:border-pink/40 group-open:bg-pink/15 group-open:text-pink-soft">
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </span>
+          </summary>
+          <p class="pb-5 pe-10 text-[15px] leading-relaxed text-muted">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

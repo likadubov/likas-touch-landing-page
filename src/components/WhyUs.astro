@@ -1,0 +1,58 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+
+const points = [
+  {
+    title: "ליווי אישי מקצה לקצה",
+    description: "לא סוכנות גדולה ולא תבנית מוכנה — עובדים ישירות איתי, מהשיחה הראשונה ועד ההשקה.",
+  },
+  {
+    title: "עיצוב וטכנולוגיה תחת קורת גג אחת",
+    description: "שילוב בין חוש עיצובי לכלים טכנולוגיים מתקדמים, כדי שהתוצר גם ייראה טוב וגם יעבוד טוב.",
+  },
+  {
+    title: "פתרונות מותאמים, לא גנריים",
+    description: "כל עסק מקבל תוכנית עבודה, שפה עיצובית וקצב התקדמות משלו — בהתאם למטרות ולתקציב שלו.",
+  },
+  {
+    title: "שקיפות מלאה בתהליך ובתמחור",
+    description: "לוחות זמנים ברורים, תקשורת פתוחה ובלי הפתעות — יודעים בדיוק למה מחכים ובאיזה שלב זה.",
+  },
+];
+---
+
+<section id="why" class="relative overflow-hidden bg-noir-2 py-24 sm:py-32">
+  <div class="pointer-events-none absolute inset-0 -z-10 bg-grid opacity-70"></div>
+  <div class="pointer-events-none absolute -top-40 -start-40 -z-10 h-96 w-96 rounded-full bg-violet/15 blur-3xl"></div>
+  <div class="pointer-events-none absolute -bottom-32 -end-20 -z-10 h-72 w-72 rounded-full bg-pink/10 blur-3xl"></div>
+
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="grid gap-16 lg:grid-cols-[0.85fr_1fr] lg:gap-12">
+      <div class="flex flex-col">
+        <SectionHeading
+          eyebrow="למה לעבוד איתי"
+          title="שותפה דיגיטלית שמתייחסת לעסק שלך כאילו הוא שלה"
+          align="start"
+        />
+        <blockquote class="reveal reveal-delay-2 glass mt-10 rounded-2xl border-e-2 border-pink px-6 py-6 text-lg leading-relaxed text-paper/85">
+          "אני מאמינה שלעסקים קטנים מגיע עיצוב וטכנולוגיה ברמה של מותגים גדולים — בלי הפשרות, ובלי לדבר בשפה טכנית מסובכת."
+          <p class="mt-4 font-mono text-sm font-semibold text-pink-soft not-italic">— ליקה, מייסדת Lika's Touch</p>
+        </blockquote>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        {points.map((point, i) => (
+          <div
+            class:list={["corner-frame reveal glass rounded-2xl p-6 transition-all duration-500 hover:border-pink/30 hover:shadow-glow", i % 2 === 1 && "reveal-delay-1", i >= 2 && "reveal-delay-2"]}
+          >
+            <span class="flex h-10 w-10 items-center justify-center rounded-full border border-pink/30 bg-pink/10 font-mono text-sm font-bold text-pink-soft">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <h3 class="mt-4 text-lg font-bold text-paper">{point.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-muted">{point.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

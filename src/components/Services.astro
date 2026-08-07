@@ -1,0 +1,79 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+
+const services = [
+  {
+    number: "01",
+    title: "עיצוב ופיתוח דפי נחיתה",
+    description:
+      "דף נחיתה ממוקד מטרה, בעיצוב מודרני ונקי שמספר את הסיפור של המותג שלך — נבנה כדי להמיר גולשים ללקוחות, ולא רק ״להיות יפה״.",
+    tags: ["עיצוב UI", "בנייה ב-Astro", "מהירות טעינה"],
+    icon: "layout",
+  },
+  {
+    number: "02",
+    title: "עיצוב מודעות ותוכן לרשתות",
+    description:
+      "עיצוב שמושך את העין ועוצר את הגלילה: מודעות, פוסטים וסטוריז שמדברים בשפה של המותג שלך ומגדילים אנגייג׳מנט.",
+    tags: ["מודעות ממומנות", "פוסטים", "סטוריז"],
+    icon: "spark",
+  },
+  {
+    number: "03",
+    title: "אוטומציות AI לעסק",
+    description:
+      "תהליכים אוטומטיים חכמים שחוסכים זמן וכסף — ממענה אוטומטי ללידים ועד סידור מידע ותהליכי עבודה, כדי שתתפנה למה שחשוב.",
+    tags: ["מענה אוטומטי", "ניהול לידים", "ייעול תהליכים"],
+    icon: "bolt",
+  },
+];
+---
+
+<section id="services" class="relative py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <SectionHeading
+      eyebrow="במה אני יכולה לעזור"
+      title="שירותים שבונים לעסק שלך מותג דיגיטלי שלם"
+      subtitle="שלושה תחומים שמשלימים זה את זה — עיצוב, טכנולוגיה ואוטומציה, כדי שהעסק שלך יראה ויעבוד ברמה הבאה."
+    />
+
+    <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {services.map((service, i) => (
+        <div
+          class:list={["corner-frame reveal glass group relative flex flex-col overflow-hidden rounded-3xl p-8 transition-all duration-500 hover:-translate-y-1.5 hover:border-pink/30 hover:shadow-glow", i === 1 && "reveal-delay-1", i === 2 && "reveal-delay-2"]}
+        >
+          <span class="absolute -top-4 -end-2 font-mono text-7xl font-bold text-white/[0.04] transition-colors duration-500 group-hover:text-pink/10">
+            {service.number}
+          </span>
+
+          <div class="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-pink to-violet text-noir shadow-[0_0_28px_-8px_var(--color-pink)] transition-transform duration-500 group-hover:scale-105">
+            {service.icon === "layout" && (
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 6.75v10.5A2.25 2.25 0 0 0 6 19.5h12a2.25 2.25 0 0 0 2.25-2.25V6.75M3.75 6.75A2.25 2.25 0 0 1 6 4.5h12a2.25 2.25 0 0 1 2.25 2.25M8.25 19.5v-8.25h7.5v8.25" />
+              </svg>
+            )}
+            {service.icon === "spark" && (
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z" />
+              </svg>
+            )}
+            {service.icon === "bolt" && (
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
+              </svg>
+            )}
+          </div>
+
+          <h3 class="relative z-10 mt-6 text-xl font-bold text-paper sm:text-2xl">{service.title}</h3>
+          <p class="relative z-10 mt-3 flex-1 text-[15px] leading-relaxed text-muted">{service.description}</p>
+
+          <div class="relative z-10 mt-6 flex flex-wrap gap-2">
+            {service.tags.map((tag) => (
+              <span class="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 font-mono text-[11px] font-medium text-muted">{tag}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

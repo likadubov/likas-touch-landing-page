@@ -1,0 +1,48 @@
+---
+import { PHONE_DISPLAY, WHATSAPP_LINK } from "../lib/site";
+import WhatsAppIcon from "./icons/WhatsAppIcon.astro";
+---
+
+<section id="contact" class="relative overflow-hidden py-24 sm:py-32">
+  <div class="mx-auto max-w-5xl px-5 sm:px-8">
+    <div class="reveal glow-line relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-noir-2 px-6 py-16 text-center shadow-soft sm:px-16 sm:py-20">
+      <div class="pointer-events-none absolute inset-0 -z-10 bg-grid opacity-50"></div>
+      <div class="scan-beam -z-10"></div>
+      <div class="pointer-events-none absolute -top-32 start-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-pink/20 blur-3xl animate-float-slow"></div>
+      <div class="pointer-events-none absolute -bottom-24 -end-10 h-60 w-60 rounded-full bg-violet/15 blur-3xl animate-float-slower"></div>
+
+      <span class="relative z-10 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-pink-soft sm:text-sm">
+        המקום להתחיל בו
+      </span>
+
+      <h2 class="relative z-10 mx-auto mt-7 max-w-2xl text-balance text-3xl font-bold leading-[1.15] text-paper sm:text-5xl">
+        בואו ניצור משהו שעובד
+      </h2>
+
+      <p class="relative z-10 mx-auto mt-5 max-w-xl text-balance text-base leading-relaxed text-muted sm:text-lg">
+        עסק קטן שרוצה נוכחות דיגיטלית שמרגישה גדולה? זו ההזדמנות להתחיל. כתבו לי בוואטסאפ ונקבע שיחת הכרות קצרה, בלי התחייבות.
+      </p>
+
+      <div class="relative z-10 mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href={WHATSAPP_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex w-full items-center justify-center gap-2 rounded-full bg-pink px-8 py-4 text-base font-semibold text-noir shadow-[0_0_40px_-10px_var(--color-pink)] transition-transform duration-300 hover:scale-[1.03] hover:bg-pink-soft sm:w-auto"
+        >
+          <WhatsAppIcon class="h-5 w-5" />
+          לשיחה בוואטסאפ
+        </a>
+        <a
+          href={WHATSAPP_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="glass w-full rounded-full px-8 py-4 text-base font-semibold text-paper transition-colors duration-300 hover:border-pink/30 hover:text-pink-soft sm:w-auto"
+          dir="ltr"
+        >
+          {PHONE_DISPLAY}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

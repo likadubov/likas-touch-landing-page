@@ -1,0 +1,52 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+
+const steps = [
+  {
+    title: "שיחת הכרות",
+    description: "מכירים את העסק, המטרות והקהל שלך — ומבינים בדיוק מה יזניק אותך קדימה.",
+  },
+  {
+    title: "תכנון ועיצוב",
+    description: "בונים תוכנית עיצובית מדויקת שמתאימה למותג שלך, ומציגים לך אותה לפני שממשיכים.",
+  },
+  {
+    title: "פיתוח ובנייה",
+    description: "מייצרים את התוצר בפועל — דף נחיתה, עיצוב חזותי או אוטומציה — באיכות גבוהה ובזמן סביר.",
+  },
+  {
+    title: "השקה וליווי",
+    description: "עולים לאוויר, בודקים שהכול עובד חלק, ונשארים בקשר לכל שאלה או שיפור עתידי.",
+  },
+];
+---
+
+<section id="process" class="relative overflow-hidden bg-noir-2 py-24 sm:py-32">
+  <div class="pointer-events-none absolute inset-0 -z-10 bg-grid opacity-60"></div>
+
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <SectionHeading
+      eyebrow="איך זה עובד"
+      title="תהליך עבודה פשוט וברור, בלי אותיות קטנות"
+      subtitle="ארבעה שלבים ברורים שמובילים מהמפגש הראשון עד לתוצר חי — עם עדכונים בדרך."
+    />
+
+    <div class="relative mt-20">
+      <div class="absolute inset-x-0 top-8 hidden h-px overflow-hidden lg:block">
+        <div class="h-full w-full animate-line-shimmer opacity-70"></div>
+      </div>
+
+      <div class="grid gap-10 lg:grid-cols-4 lg:gap-6">
+        {steps.map((step, i) => (
+          <div class:list={["reveal relative flex flex-col items-center text-center lg:items-center", i === 1 && "reveal-delay-1", i === 2 && "reveal-delay-2", i === 3 && "reveal-delay-3"]}>
+            <div class="relative z-10 flex h-16 w-16 items-center justify-center rounded-full border border-pink/40 bg-noir font-mono text-xl font-bold text-pink-soft shadow-[0_0_24px_-8px_var(--color-pink)]">
+              {String(i + 1).padStart(2, "0")}
+            </div>
+            <h3 class="mt-6 text-lg font-bold text-paper sm:text-xl">{step.title}</h3>
+            <p class="mt-2 max-w-xs text-sm leading-relaxed text-muted">{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
