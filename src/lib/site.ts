@@ -8,9 +8,9 @@ export const WHATSAPP_DEFAULT_MESSAGE = "היי ליקה, אשמח לשמוע פ
 export const WHATSAPP_LINK = `https://wa.me/${PHONE_INTL}?text=${encodeURIComponent(WHATSAPP_DEFAULT_MESSAGE)}`;
 
 export const NAV_LINKS = [
-  { href: "#services", label: "השירות שלנו" },
-  { href: "#work", label: "פרויקטים" },
-  { href: "#why", label: "למה אני" },
-  { href: "#process", label: "תהליך העבודה" },
-  { href: "#faq", label: "שאלות ותשובות" },
+  { href: "/#services", label: "השירות שלנו" },
+  { href: "/#work", label: "פרויקטים" },
+  { href: "/#why", label: "למה אני" },
+  { href: "/#process", label: "תהליך העבודה" },
+  { href: "/#faq", label: "שאלות ותשובות" },
 ];

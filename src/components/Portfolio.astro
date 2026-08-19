@@ -57,37 +57,43 @@ const groups = [
         </div>
 
         <div class="mt-6 grid items-start gap-6 sm:grid-cols-2">
-          {group.items.map((project, i) => (
-            <a
-              href={project.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              class:list={["corner-frame reveal group relative flex w-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-noir-3 shadow-card", i % 2 === 1 && "reveal-delay-1"]}
-            >
-              <div class="relative w-full overflow-hidden" style={{ aspectRatio: project.aspect }}>
-                <Image
-                  src={project.image}
-                  alt={`${project.name} — ${project.category}`}
-                  class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  widths={[400, 800, 1200]}
-                  sizes="(min-width: 640px) 50vw, 100vw"
-                />
-                <div class="absolute inset-0 bg-grid opacity-20"></div>
-              </div>
-
-              <div class="relative z-10 flex items-center justify-between gap-3 border-t border-white/10 p-6">
-                <div>
-                  <p class="font-mono text-xs font-semibold uppercase tracking-wide text-pink-soft">{`// ${project.category}`}</p>
-                  <h3 class="mt-1 text-lg font-bold text-paper sm:text-xl">{project.name}</h3>
+          {group.items.map((project, i) => {
+            const Tag = project.href ? "a" : "article";
+            const linkProps = project.href
+              ? { href: project.href, target: "_blank", rel: "noopener noreferrer" }
+              : {};
+            return (
+              <Tag
+                {...linkProps}
+                class:list={["corner-frame reveal group relative flex w-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-noir-3 shadow-card", i % 2 === 1 && "reveal-delay-1"]}
+              >
+                <div class="relative w-full overflow-hidden" style={{ aspectRatio: project.aspect }}>
+                  <Image
+                    src={project.image}
+                    alt={`${project.name} — ${project.category}`}
+                    class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    widths={[400, 800, 1200]}
+                    sizes="(min-width: 640px) 50vw, 100vw"
+                  />
+                  <div class="absolute inset-0 bg-grid opacity-20"></div>
                 </div>
-                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/5 text-paper transition-transform duration-500 group-hover:-translate-y-1 group-hover:rotate-45 group-hover:border-pink/40 group-hover:text-pink-soft">
-                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8 21 12M21 12 17 16M21 12H3" />
-                  </svg>
-                </span>
-              </div>
-            </a>
-          ))}
+
+                <div class="relative z-10 flex items-center justify-between gap-3 border-t border-white/10 p-6">
+                  <div>
+                    <p class="font-mono text-xs font-semibold uppercase tracking-wide text-pink-soft">{`// ${project.category}`}</p>
+                    <h3 class="mt-1 text-lg font-bold text-paper sm:text-xl">{project.name}</h3>
+                  </div>
+                  {project.href && (
+                    <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/5 text-paper transition-transform duration-500 group-hover:-translate-y-1 group-hover:rotate-45 group-hover:border-pink/40 group-hover:text-pink-soft">
+                      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 8 21 12M21 12 17 16M21 12H3" />
+                      </svg>
+                    </span>
+                  )}
+                </div>
+              </Tag>
+            );
+          })}
         </div>
       </div>
     ))}

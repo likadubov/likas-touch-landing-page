@@ -30,8 +30,9 @@ const lastUpdated = "19.08.2026";
 		<title>{title}</title>
 	</head>
 	<body class="overflow-x-hidden font-sans">
+		<a href="#main-content" class="skip-link">דלגו לתוכן המרכזי</a>
 		<Header />
-		<main>
+		<main id="main-content" tabindex="-1">
 			<section class="relative py-24 sm:py-32">
 				<div class="mx-auto max-w-3xl px-5 sm:px-8">
 					<span class="inline-flex items-center gap-2 self-auto rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 font-mono text-sm font-medium uppercase tracking-[0.12em] text-pink-soft">
@@ -69,12 +70,20 @@ const lastUpdated = "19.08.2026";
 							<ul>
 								<li>מבנה עמוד סמנטי והיררכיית כותרות מסודרת, לתמיכה בקוראי מסך ובניווט מקלדת.</li>
 								<li>תיאורי טקסט חלופי (alt) לתמונות ולפרויקטים המוצגים בתיק העבודות.</li>
-								<li>תוויות ARIA לרכיבים אינטראקטיביים ללא טקסט גלוי, כגון תפריט הניווט הנייד וכפתור הוואטסאפ הצף.</li>
-								<li>תמיכה מלאה בכיווניות עברית (RTL) ובניווט מקלדת בין רכיבי האתר.</li>
+								<li>תוויות ARIA לרכיבים אינטראקטיביים ללא טקסט גלוי, כגון תפריט הניווט הנייד וכפתור הוואטסאפ הצף — כולל עדכון התווית בזמן אמת בעת פתיחה/סגירה של התפריט.</li>
+								<li>קישור "דלגו לתוכן המרכזי" בתחילת כל עמוד, המאפשר למשתמשי מקלדת לדלג ישירות לתוכן בלי לעבור בכל פריטי הניווט.</li>
+								<li>אינדיקציית פוקוס (focus) ברורה ועקבית על כל רכיב אינטראקטיבי בעת ניווט במקלדת (מקש Tab).</li>
+								<li>תמיכה בכיווניות עברית (RTL) ובניווט בעזרת מקלדת בין רכיבי האתר.</li>
 								<li>עיצוב רספונסיבי המותאם לצפייה בכל גודל מסך — נייד, טאבלט ומחשב.</li>
-								<li>ניגודיות צבעים שנבחרה מתוך תשומת לב לקריאות הטקסט על גבי הרקע.</li>
+								<li>ניגודיות צבעים שנבדקה ותוקנה במקומות הרלוונטיים (למשל כפתור הוואטסאפ הצף) כדי לעמוד ביחס הניגודיות המומלץ בתקן WCAG AA.</li>
+								<li>תמיכה בהעדפת המשתמש "הפחתת תנועה" (prefers-reduced-motion) — במחשבים שבהם הוגדרה העדפה זו, אנימציות הרקע (כגון אלמנטים מרחפים ואפקטי סריקה) מושבתות או מוקטנות משמעותית.</li>
 								<li>האתר תומך בהגדלת טקסט באמצעות פקדי הדפדפן (לדוגמה Ctrl ו-+ / Ctrl ו--).</li>
 							</ul>
+							<p class="mt-4 text-sm">
+								חשוב לציין: ההתאמות שלעיל בוצעו ונבדקו באופן פנימי (כולל בדיקת ניווט מקלדת בלבד לכל האתר), ואינן
+								מהוות בדיקה, אישור או הסמכה רשמית של גורם מוסמך חיצוני לתקן הישראלי 5568 או לתקן WCAG. אנו לא
+								מציגים את האתר ככזה שעבר הסמכת נגישות מקצועית, וממשיכים לבחון ולשפר את הנגישות באופן שוטף.
+							</p>
 						</div>
 
 						<div>
@@ -109,12 +118,12 @@ const lastUpdated = "19.08.2026";
 								דרך
 								{" "}
 								<a
-									href="https://index.justice.gov.il/Units/NetzivutShivyon/ContactUs/Pages/Default_PnuEleinu.aspx"
+									href="https://www.gov.il/he/pages/public_queries"
 									target="_blank"
 									rel="noopener noreferrer"
 									class="font-semibold text-pink-soft hover:underline"
 								>
-									טופס פניות הציבור באתר משרד המשפטים
+									טופס פניות הציבור באתר gov.il
 								</a>.
 							</p>
 						</div>

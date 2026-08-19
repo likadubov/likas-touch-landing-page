@@ -32,6 +32,55 @@
     font-feature-settings: "kern" 1, "liga" 1;
     -webkit-font-smoothing: antialiased;
   }
+
+  :focus-visible {
+    outline: 2px solid var(--color-pink-soft);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* Skip link: hidden off-screen until keyboard-focused */
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 1rem;
+  inset-inline-start: 1rem;
+  transform: translateY(-150%);
+  background-color: var(--color-pink);
+  color: var(--color-noir);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  box-shadow: var(--shadow-glow);
+  transition: transform 0.2s ease;
+}
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid var(--color-paper);
+  outline-offset: 3px;
+}
+
+/* Respect reduced-motion preference: kill continuous/decorative animation */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 @layer utilities {
