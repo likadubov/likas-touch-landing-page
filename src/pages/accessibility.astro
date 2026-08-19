@@ -1,0 +1,128 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import WhatsAppButton from "../components/WhatsAppButton.astro";
+import { WHATSAPP_LINK, PHONE_DISPLAY } from "../lib/site";
+
+const title = "הצהרת נגישות | Lika's Touch";
+const description = "הצהרת הנגישות של אתר Lika's Touch — ההתאמות שבוצעו, המגבלות הידועות ודרכי יצירת קשר בנושאי נגישות.";
+const lastUpdated = "19.08.2026";
+---
+
+<html lang="he" dir="rtl">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<meta name="theme-color" content="#0a0a0d" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+			rel="stylesheet"
+		/>
+
+		<title>{title}</title>
+	</head>
+	<body class="overflow-x-hidden font-sans">
+		<Header />
+		<main>
+			<section class="relative py-24 sm:py-32">
+				<div class="mx-auto max-w-3xl px-5 sm:px-8">
+					<span class="inline-flex items-center gap-2 self-auto rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 font-mono text-sm font-medium uppercase tracking-[0.12em] text-pink-soft">
+						<span class="h-1.5 w-1.5 rounded-full bg-pink shadow-[0_0_8px_var(--color-pink)]"></span>
+						נגישות
+					</span>
+
+					<h1 class="mt-6 text-balance text-3xl font-bold leading-[1.15] text-paper sm:text-4xl md:text-5xl">
+						הצהרת נגישות
+					</h1>
+					<p class="mt-4 text-sm text-muted">עודכן לאחרונה: {lastUpdated}</p>
+
+					<div class="mt-10 flex flex-col gap-10 text-base leading-relaxed text-muted [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-paper [&_h2]:sm:text-2xl [&_p]:mt-3 [&_ul]:mt-3 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-2 [&_li]:relative [&_li]:ps-5">
+						<div>
+							<h2>מחויבות לנגישות</h2>
+							<p>
+								ב-Lika's Touch אנחנו מאמינים שכל אדם צריך להיות מסוגל לגלוש באתר בנוחות, ללא תלות ביכולות שלו.
+								אנו פועלים באופן שוטף לשפר את נגישות האתר עבור אנשים עם מוגבלות, מתוך אחריות ומחויבות אמיתית לשירות שוויוני.
+							</p>
+						</div>
+
+						<div>
+							<h2>מעמד משפטי</h2>
+							<p>
+								האתר פועל בהתאם לתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע"ג-2013.
+								מחזור העסק הכספי השנתי נמוך מהסף הקבוע בתקנות (100,000 ₪), ולכן העסק פטור מחובת ביצוע התאמות נגישות
+								מלאות באתר בהתאם לתקן הישראלי 5568 (המבוסס על התקן הבינלאומי WCAG 2.0 ברמה AA).
+								עם זאת, ומתוך רצון להנגיש את השירות לכל לקוח פוטנציאלי, ביצענו באתר מספר התאמות נגישות מרצון,
+								כמפורט מטה, ומציעים דרכי יצירת קשר נגישות זמינות לכל פנייה.
+							</p>
+						</div>
+
+						<div>
+							<h2>ההתאמות שבוצעו באתר</h2>
+							<ul>
+								<li>מבנה עמוד סמנטי והיררכיית כותרות מסודרת, לתמיכה בקוראי מסך ובניווט מקלדת.</li>
+								<li>תיאורי טקסט חלופי (alt) לתמונות ולפרויקטים המוצגים בתיק העבודות.</li>
+								<li>תוויות ARIA לרכיבים אינטראקטיביים ללא טקסט גלוי, כגון תפריט הניווט הנייד וכפתור הוואטסאפ הצף.</li>
+								<li>תמיכה מלאה בכיווניות עברית (RTL) ובניווט מקלדת בין רכיבי האתר.</li>
+								<li>עיצוב רספונסיבי המותאם לצפייה בכל גודל מסך — נייד, טאבלט ומחשב.</li>
+								<li>ניגודיות צבעים שנבחרה מתוך תשומת לב לקריאות הטקסט על גבי הרקע.</li>
+								<li>האתר תומך בהגדלת טקסט באמצעות פקדי הדפדפן (לדוגמה Ctrl ו-+ / Ctrl ו--).</li>
+							</ul>
+						</div>
+
+						<div>
+							<h2>מגבלות ידועות</h2>
+							<p>
+								חרף המאמצים, ייתכן שבחלקים מסוימים באתר — כגון סרטונים או תוכן חיצוני מוטמע — טרם בוצעה התאמה
+								מלאה לתקן הנגישות. אנו ממשיכים לעבוד על שיפור הנגישות באתר באופן שוטף.
+							</p>
+						</div>
+
+						<div>
+							<h2>פנייה בנושא נגישות</h2>
+							<p>
+								נתקלת בבעיית נגישות באתר, יש לך הצעה לשיפור, או שאתה זקוק להתאמה נוספת כדי לקבל את השירות?
+								אפשר לפנות ישירות אליי, ליקה, בעלת העסק:
+							</p>
+							<ul>
+								<li>
+									טלפון / וואטסאפ:
+									<a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" dir="ltr" class="font-semibold text-pink-soft hover:underline">
+										{PHONE_DISPLAY}
+									</a>
+								</li>
+							</ul>
+							<p>נשתדל לטפל בכל פנייה בנושא נגישות בהקדם האפשרי, בדרך כלל בתוך ימי עסקים ספורים.</p>
+						</div>
+
+						<div>
+							<h2>פנייה לנציבות שוויון זכויות לאנשים עם מוגבלות</h2>
+							<p>
+								אם פנייתך לא נענתה כראוי, ניתן לפנות גם לנציבות שוויון זכויות לאנשים עם מוגבלות במשרד המשפטים,
+								דרך
+								{" "}
+								<a
+									href="https://index.justice.gov.il/Units/NetzivutShivyon/ContactUs/Pages/Default_PnuEleinu.aspx"
+									target="_blank"
+									rel="noopener noreferrer"
+									class="font-semibold text-pink-soft hover:underline"
+								>
+									טופס פניות הציבור באתר משרד המשפטים
+								</a>.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<Footer />
+		<WhatsAppButton />
+	</body>
+</html>
