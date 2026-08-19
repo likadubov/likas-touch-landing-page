@@ -1,78 +1,105 @@
 ---
 import { Image } from "astro:assets";
-import SectionHeading from "./SectionHeading.astro";
 import engraving3d from "../assets/portfolio/engraving3d-website.png";
 import saritBaking from "../assets/portfolio/sarit-baking.png";
 import laser3dFlyer from "../assets/portfolio/laser3d-flyer.webp";
 import likasTouchPromo from "../assets/portfolio/likas-touch-promo.webp";
 
-const projects = [
+const groups = [
   {
-    name: "Engraving3D Israel",
-    category: "בניית אתר תדמית",
-    image: engraving3d,
-    href: "https://www.engraving3d.co.il/",
+    label: "דפי נחיתה",
+    items: [
+      {
+        name: "Engraving3D Israel",
+        category: "בניית אתר תדמית",
+        image: engraving3d,
+        href: "https://www.engraving3d.co.il/",
+      },
+      {
+        name: "יונית יון — סדנאות אפייה",
+        category: "בניית דף נחיתה",
+        image: saritBaking,
+        href: "https://zestful-keep-417534.framer.app/sarit-baking-workshops",
+      },
+    ],
   },
   {
-    name: "יונית יון — סדנאות אפייה",
-    category: "בניית דף נחיתה",
-    image: saritBaking,
-    href: "https://zestful-keep-417534.framer.app/sarit-baking-workshops",
-  },
-  {
-    name: "Laser 3D",
-    category: "עיצוב פלייר לחריטת קריסטל",
-    image: laser3dFlyer,
-  },
-  {
-    name: "Lika's Touch",
-    category: "עיצוב מודעה ממומנת",
-    image: likasTouchPromo,
+    label: "מודעות",
+    items: [
+      {
+        name: "Laser 3D",
+        category: "עיצוב פלייר לחריטת קריסטל",
+        image: laser3dFlyer,
+      },
+      {
+        name: "Lika's Touch",
+        category: "עיצוב מודעה ממומנת",
+        image: likasTouchPromo,
+      },
+    ],
   },
 ];
 ---
 
-<section id="work" class="relative py-24 sm:py-32">
+<section id="work" class="relative bg-paper py-24 text-noir sm:py-32">
   <div class="mx-auto max-w-7xl px-5 sm:px-8">
-    <SectionHeading
-      eyebrow="עבודות נבחרות"
-      title="פרויקטים שנולדו מתוך שיתוף פעולה קרוב"
-      subtitle="כל פרויקט הוא הזדמנות לבנות מותג מהיסוד — הנה כמה מהעבודות האחרונות שיצאו לאוויר."
-    />
+    {groups.map((group, gi) => (
+      <div class:list={[gi > 0 && "mt-16"]}>
+        <div class="reveal flex items-center gap-2.5">
+          <span class="h-1.5 w-1.5 rounded-full bg-pink shadow-[0_0_8px_var(--color-pink)]"></span>
+          <span class="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-pink-deep">
+            {group.label}
+          </span>
+        </div>
 
-    <div class="mt-16 grid gap-6 sm:grid-cols-2">
-      {projects.map((project, i) => (
-        <a
-          href={project.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          class:list={["corner-frame reveal group relative flex aspect-[4/3] flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-noir-3 shadow-card", i % 2 === 1 && "reveal-delay-1", i >= 2 && "reveal-delay-2"]}
-        >
-          <Image
-            src={project.image}
-            alt={`${project.name} — ${project.category}`}
-            class="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
-            widths={[400, 800, 1200]}
-            sizes="(min-width: 640px) 50vw, 100vw"
-          />
-          <div class="absolute inset-0 bg-grid opacity-20"></div>
+        <div class="mt-6 grid gap-6 sm:grid-cols-2">
+          {group.items.map((project, i) => (
+            <a
+              href={project.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class:list={["corner-frame reveal group relative flex aspect-[4/3] flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-noir-3 shadow-card", i % 2 === 1 && "reveal-delay-1"]}
+            >
+              <Image
+                src={project.image}
+                alt={`${project.name} — ${project.category}`}
+                class="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                widths={[400, 800, 1200]}
+                sizes="(min-width: 640px) 50vw, 100vw"
+              />
+              <div class="absolute inset-0 bg-grid opacity-20"></div>
 
-          <div class="relative z-10 flex items-end justify-between gap-3 bg-gradient-to-t from-noir via-noir/70 to-transparent p-6 pt-16">
-            <div>
-              <p class="font-mono text-xs font-semibold uppercase tracking-wide text-pink-soft">{`// ${project.category}`}</p>
-              <h3 class="mt-1 text-lg font-bold text-paper sm:text-xl">{project.name}</h3>
-            </div>
-            <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/5 text-paper transition-transform duration-500 group-hover:-translate-y-1 group-hover:rotate-45 group-hover:border-pink/40 group-hover:text-pink-soft">
-              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8 21 12M21 12 17 16M21 12H3" />
-              </svg>
-            </span>
-          </div>
-        </a>
-      ))}
+              <div class="relative z-10 flex items-end justify-between gap-3 bg-gradient-to-t from-noir via-noir/70 to-transparent p-6 pt-16">
+                <div>
+                  <p class="font-mono text-xs font-semibold uppercase tracking-wide text-pink-soft">{`// ${project.category}`}</p>
+                  <h3 class="mt-1 text-lg font-bold text-paper sm:text-xl">{project.name}</h3>
+                </div>
+                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/5 text-paper transition-transform duration-500 group-hover:-translate-y-1 group-hover:rotate-45 group-hover:border-pink/40 group-hover:text-pink-soft">
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8 21 12M21 12 17 16M21 12H3" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    ))}
+
+    <div class="reveal mx-auto mt-20 flex max-w-2xl flex-col items-center gap-4 text-center">
+      <span class="inline-flex items-center gap-2 self-auto rounded-full border border-noir/10 bg-noir/[0.03] px-3.5 py-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-pink-deep">
+        <span class="h-1.5 w-1.5 rounded-full bg-pink shadow-[0_0_8px_var(--color-pink)]"></span>
+        עבודות נבחרות
+      </span>
+      <h2 class="text-balance text-3xl font-bold leading-[1.15] text-noir sm:text-4xl md:text-5xl">
+        פרויקטים שנולדו מתוך שיתוף פעולה קרוב
+      </h2>
+      <p class="text-balance text-base leading-relaxed text-noir/65 sm:text-lg">
+        כל פרויקט הוא הזדמנות לבנות מותג מהיסוד — הנה כמה מהעבודות האחרונות שיצאו לאוויר.
+      </p>
     </div>
 
-    <p class="reveal mt-10 text-center text-sm text-muted">
+    <p class="reveal mt-8 text-center text-sm text-noir/50">
       * עוד עבודות ותיק עבודות מלא — בבקשה בוואטסאפ.
     </p>
   </div>
