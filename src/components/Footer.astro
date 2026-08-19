@@ -18,7 +18,7 @@ const year = new Date().getFullYear();
 
       <div class="flex flex-col gap-8 sm:flex-row sm:gap-16">
         <div>
-          <h4 class="font-mono text-xs font-semibold uppercase tracking-wide text-muted">ניווט</h4>
+          <h3 class="font-mono text-xs font-semibold uppercase tracking-wide text-muted">ניווט</h3>
           <ul class="mt-4 flex flex-col gap-2.5">
             {NAV_LINKS.map((link) => (
               <li>
@@ -31,7 +31,7 @@ const year = new Date().getFullYear();
         </div>
 
         <div>
-          <h4 class="font-mono text-xs font-semibold uppercase tracking-wide text-muted">יצירת קשר</h4>
+          <h3 class="font-mono text-xs font-semibold uppercase tracking-wide text-muted">יצירת קשר</h3>
           <ul class="mt-4 flex flex-col gap-2.5">
             <li>
               <a
@@ -42,6 +42,7 @@ const year = new Date().getFullYear();
                 class="text-sm text-paper/80 transition-colors hover:text-pink-soft"
               >
                 {PHONE_DISPLAY}
+                <span class="sr-only"> (נפתח בוואטסאפ בטאב חדש)</span>
               </a>
             </li>
             <li class="text-sm text-paper/80">ישראל · עבודה מרחוק</li>
