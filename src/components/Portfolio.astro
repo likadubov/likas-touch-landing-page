@@ -45,7 +45,17 @@ const groups = [
 ];
 ---
 
-<section id="work" class="relative py-24 sm:py-32">
+<section id="work" class="relative overflow-hidden py-24 sm:py-32">
+  <h2 class="sr-only">עבודות נבחרות</h2>
+  <div class="pointer-events-none absolute inset-0 -z-20 bg-grid opacity-60"></div>
+  <div class="scan-beam -z-20"></div>
+  <div
+    class="pointer-events-none absolute -top-20 -start-24 -z-10 h-72 w-72 rounded-full bg-violet/15 blur-3xl animate-float-slow sm:h-96 sm:w-96"
+  ></div>
+  <div
+    class="pointer-events-none absolute -bottom-24 -end-20 -z-10 h-72 w-72 rounded-full bg-pink/15 blur-3xl animate-float-slower sm:h-96 sm:w-96"
+  ></div>
+
   <div class="mx-auto max-w-7xl px-5 sm:px-8">
     {groups.map((group, gi) => (
       <div class:list={[gi > 0 && "mt-16"]}>
@@ -97,22 +107,5 @@ const groups = [
         </div>
       </div>
     ))}
-
-    <div class="reveal mx-auto mt-20 flex max-w-2xl flex-col items-center gap-4 text-center">
-      <span class="inline-flex items-center gap-2 self-auto rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 font-mono text-sm font-medium uppercase tracking-[0.12em] text-pink-soft">
-        <span class="h-1.5 w-1.5 rounded-full bg-pink shadow-[0_0_8px_var(--color-pink)]"></span>
-        עבודות נבחרות
-      </span>
-      <h2 class="text-balance text-3xl font-bold leading-[1.15] text-paper sm:text-4xl md:text-5xl">
-        פרויקטים שנולדו מתוך שיתוף פעולה קרוב
-      </h2>
-      <p class="text-balance text-base leading-relaxed text-muted sm:text-lg">
-        כל פרויקט הוא הזדמנות לבנות מותג מהיסוד — הנה כמה מהעבודות האחרונות שיצאו לאוויר.
-      </p>
-    </div>
-
-    <p class="reveal mt-8 text-center text-sm text-muted">
-      * עוד עבודות ותיק עבודות מלא — בבקשה בוואטסאפ.
-    </p>
   </div>
 </section>
