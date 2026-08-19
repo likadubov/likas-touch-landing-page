@@ -9,8 +9,8 @@ export const WHATSAPP_LINK = `https://wa.me/${PHONE_INTL}?text=${encodeURICompon
 
 export const NAV_LINKS = [
   { href: "#services", label: "השירות שלנו" },
-  { href: "#why", label: "למה אני" },
   { href: "#work", label: "פרויקטים" },
+  { href: "#why", label: "למה אני" },
   { href: "#process", label: "תהליך העבודה" },
   { href: "#faq", label: "שאלות ותשובות" },
 ];
