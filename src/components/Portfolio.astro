@@ -14,12 +14,14 @@ const groups = [
         category: "בניית אתר תדמית",
         image: engraving3d,
         href: "https://www.engraving3d.co.il/",
+        aspect: "1280 / 1000",
       },
       {
         name: "יונית יון — סדנאות אפייה",
         category: "בניית דף נחיתה",
         image: saritBaking,
         href: "https://zestful-keep-417534.framer.app/sarit-baking-workshops",
+        aspect: "1280 / 900",
       },
     ],
   },
@@ -30,11 +32,13 @@ const groups = [
         name: "Laser 3D",
         category: "עיצוב פלייר לחריטת קריסטל",
         image: laser3dFlyer,
+        aspect: "1284 / 1783",
       },
       {
         name: "Lika's Touch",
         category: "עיצוב מודעה ממומנת",
         image: likasTouchPromo,
+        aspect: "1122 / 1402",
       },
     ],
   },
@@ -52,24 +56,26 @@ const groups = [
           </span>
         </div>
 
-        <div class="mt-6 grid gap-6 sm:grid-cols-2">
+        <div class="mt-6 grid items-start gap-6 sm:grid-cols-2">
           {group.items.map((project, i) => (
             <a
               href={project.href}
               target="_blank"
               rel="noopener noreferrer"
-              class:list={["corner-frame reveal group relative flex aspect-[4/3] flex-col justify-end overflow-hidden rounded-3xl border border-white/10 bg-noir-3 shadow-card", i % 2 === 1 && "reveal-delay-1"]}
+              class:list={["corner-frame reveal group relative flex w-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-noir-3 shadow-card", i % 2 === 1 && "reveal-delay-1"]}
             >
-              <Image
-                src={project.image}
-                alt={`${project.name} — ${project.category}`}
-                class="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
-                widths={[400, 800, 1200]}
-                sizes="(min-width: 640px) 50vw, 100vw"
-              />
-              <div class="absolute inset-0 bg-grid opacity-20"></div>
+              <div class="relative w-full overflow-hidden" style={{ aspectRatio: project.aspect }}>
+                <Image
+                  src={project.image}
+                  alt={`${project.name} — ${project.category}`}
+                  class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  widths={[400, 800, 1200]}
+                  sizes="(min-width: 640px) 50vw, 100vw"
+                />
+                <div class="absolute inset-0 bg-grid opacity-20"></div>
+              </div>
 
-              <div class="relative z-10 flex items-end justify-between gap-3 bg-gradient-to-t from-noir via-noir/70 to-transparent p-6 pt-16">
+              <div class="relative z-10 flex items-center justify-between gap-3 border-t border-white/10 p-6">
                 <div>
                   <p class="font-mono text-xs font-semibold uppercase tracking-wide text-pink-soft">{`// ${project.category}`}</p>
                   <h3 class="mt-1 text-lg font-bold text-paper sm:text-xl">{project.name}</h3>
